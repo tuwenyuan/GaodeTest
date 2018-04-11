@@ -4,6 +4,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
+import android.graphics.Color;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -18,6 +19,7 @@ import java.util.Locale;
 public class MainActivity extends AppCompatActivity {
 
     private TextView tv;
+    private BounceLoadingView loadingView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,6 +32,19 @@ public class MainActivity extends AppCompatActivity {
 
     private void initView() {
         tv = findViewById(R.id.tv);
+
+        /*loadingView = findViewById(R.id.loading_view);
+
+        loadingView.addBitmap(R.mipmap.v4);
+        loadingView.addBitmap(R.mipmap.v5);
+        loadingView.addBitmap(R.mipmap.v6);
+        loadingView.addBitmap(R.mipmap.v7);
+        loadingView.addBitmap(R.mipmap.v8);
+        loadingView.addBitmap(R.mipmap.v9);
+        loadingView.setShadowColor(Color.LTGRAY);
+        loadingView.setDuration(700);
+        loadingView.start();*/
+
     }
 
     private void initData() {

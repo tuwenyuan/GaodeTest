@@ -10,11 +10,23 @@
         android:layerType="software"
         android:layout_height="fill_parent" />
 
-    <ImageView
+    <!--<ImageView
         android:layout_width="30dp"
         android:layout_height="30dp"
         android:src="@drawable/green2d"
+        android:layout_centerInParent="true"/>-->
+
+    <View
+        android:id="@+id/v"
+        android:layout_width="1dp"
+        android:layout_height="1dp"
         android:layout_centerInParent="true"/>
+    <com.example.twy.gaodetest.BounceLoadingView1
+        android:id="@+id/loading_view"
+        android:layout_width="30dp"
+        android:layout_height="wrap_content"
+        android:layout_above="@id/v"
+        android:layout_centerHorizontal="true"/>
 
 
 

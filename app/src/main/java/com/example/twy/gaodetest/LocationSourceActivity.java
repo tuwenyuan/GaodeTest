@@ -71,6 +71,7 @@ public class LocationSourceActivity extends AppCompatActivity implements Locatio
     private double latitude;
     private double longitude;
     private View ivLocation;
+    private BounceLoadingView1 loadingView;
     /*private LatLng latLng;
     private LatLng latLng1;
     private LatLng latLng2;
@@ -115,6 +116,10 @@ public class LocationSourceActivity extends AppCompatActivity implements Locatio
         tvSnippet = findViewById(R.id.tv_snippet);
         tvSure = findViewById(R.id.tv_sure);
         ivLocation = findViewById(R.id.iv_location);
+        loadingView = findViewById(R.id.loading_view);
+        loadingView.addBitmap(R.mipmap.ld);
+        loadingView.setShadowColor(Color.LTGRAY);
+        loadingView.setDuration(200);
 
         //地理搜索类
         geocodeSearch = new GeocodeSearch(this);
@@ -293,15 +298,19 @@ public class LocationSourceActivity extends AppCompatActivity implements Locatio
                         }
                     };
                     flag = true;
+                    loadingView.down();
                     countDownTimer.start();
                 }else if(!flag){
                     flag = true;
+                    loadingView.down();
                     countDownTimer.start();
                 }
             }
 
             @Override
             public void onCameraChangeFinish(CameraPosition cameraPosition) {
+                if(flag)
+                    loadingView.up();
                 if(countDownTimer!=null)
                     countDownTimer.cancel();
                 flag = false;
